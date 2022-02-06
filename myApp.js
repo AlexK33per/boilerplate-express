@@ -3,7 +3,7 @@ var app = express();
 
 absolutePath = __dirname + '/views/index.html';
 
-app.use(path, express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/public"));
 
 function sendExpressFile(req, res)  {
     res.sendFile(absolutePath);
