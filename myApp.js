@@ -10,7 +10,9 @@ function sendExpressFile(req, res)  {
 }
 
 function sendJSON(req, res) {
-    res.json().send('Hello json');
+    res.json(
+        { "message": "Hello json" }
+    );
 }
 
 app.get('/', sendExpressFile);
