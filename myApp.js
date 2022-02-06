@@ -1,6 +1,10 @@
 var express = require('express');
 var app = express();
 
-app.get('/', res.send('Hello Express'));
+function sendExpressMessage(req, res)  {
+    res.send('Hello Express');
+}
+
+app.get('/', sendExpressMessage);
 
  module.exports = app; 
