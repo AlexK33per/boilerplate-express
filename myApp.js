@@ -9,6 +9,11 @@ function sendExpressFile(req, res)  {
     res.sendFile(absolutePath);
 }
 
+function sendJSON(req, res) {
+    res.send('Hello json').json();
+}
+
 app.get('/', sendExpressFile);
+app.get('/json', sendJSON);
 
 module.exports = app; 
