@@ -7,6 +7,6 @@ function sendExpressFile(req, res)  {
     res.sendFile(absolutePath);
 }
 
-app.get('/', sendExpressFile);
+app.use(express.static(__dirname + '/public'), sendExpressFile);
 
 module.exports = app; 
