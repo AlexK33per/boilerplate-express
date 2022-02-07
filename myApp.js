@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-require('dotenv').config();
 
 absolutePath = __dirname + '/views/index.html';
 
@@ -11,7 +10,7 @@ function sendExpressFile(req, res)  {
 }
 
 function sendJSON(req, res) {
-    if(process.env.MESSAGE_STYLE.equals('uppercase')) {
+   /* if(process.env.MESSAGE_STYLE.equals('uppercase')) {
         res.json(
             { "message": "HELLO JSON" }
         );
@@ -19,7 +18,11 @@ function sendJSON(req, res) {
         res.json(
             { "message": "Hello json" }
         );
-    }  
+    }*/    
+
+    res.json(
+        { "message": "Hello json" }
+    );
 }
 
 app.get('/', sendExpressFile);
