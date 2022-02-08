@@ -11,7 +11,7 @@ function sendExpressFile(req, res)  {
 }
 
 function sendJSON(req, res) {
-    if(process.env.MESSAGE_STYLE.equals('uppercase')) {
+    if(process.env.MESSAGE_STYLE == 'uppercase') {
         res.json(
             { "message": "HELLO JSON" }
         );
