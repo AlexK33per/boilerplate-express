@@ -28,5 +28,13 @@ app.use((req, res, next) => {
 });
 app.get('/', sendExpressFile);
 app.get('/json', sendJSON);
+app.get('/now', (req, res, next) => {
+    req.time = new Date.now.toString();
+    next();
+}, (req, res) => {
+    res.json(
+        { "time": req.time } 
+    );
+});
 
 module.exports = app; 
