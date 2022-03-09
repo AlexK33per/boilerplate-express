@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 app.get('/', sendExpressFile);
 app.get('/json', sendJSON);
 app.get('/now', (req, res, next) => {
-    req.time = new Date.toString();
+    req.time = new Date().toString();
     next();
 }, (req, res) => {
     res.json(
