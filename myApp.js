@@ -6,6 +6,8 @@ absolutePath = __dirname + '/views/index.html';
 
 app.use("/public", express.static(__dirname + "/public"));
 
+//Global functions
+
 function sendExpressFile(req, res)  {
     res.sendFile(absolutePath);
 }
@@ -26,8 +28,13 @@ app.use((req, res, next) => {
     console.log(`${req.method} ${req.path} - ${req.ip}`);
     next();
 });
+
+// Routers
+
 app.get('/', sendExpressFile);
+
 app.get('/json', sendJSON);
+
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
@@ -44,5 +51,12 @@ app.get('/:word/echo', (req, res) => {
         }
     );
 });
+
+app.route('/name')
+    .get((req, res) => {
+        res.json({
+            "name": `${req.query.firstname} ${req.query.lastname}`
+        });
+    });
 
 module.exports = app; 
